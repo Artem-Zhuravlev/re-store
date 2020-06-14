@@ -3,16 +3,19 @@ import './app.css';
 import { Route, Switch } from 'react-router-dom';  
 import { HomePage, CartPage } from '../pages';
 import { withBookstoreService } from '../hoc';
+import ShopHeader from '../shop-header';
+
 
 const App = ( {bookstoreService} ) => {
-  console.log(bookstoreService.getBooks());
   return (
-    <div>
+    <main role="main" className="container">
+      <ShopHeader numItems={5} total={210}/>
       <Switch>
         <Route path='/' component={HomePage} exact />
         <Route path='/cart' component={CartPage} />
-      </Switch> 
-    </div>
+      </Switch>
+      
+    </main>
   );
 };
 
